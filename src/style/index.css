@@ -1,0 +1,1534 @@
+@import url("https://fonts.cdnfonts.com/css/bw-modelica-ss01?styles=26393,26391,26383");
+@import url("https://fonts.cdnfonts.com/css/blacker-display?styles=46883");
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button,
+.button:hover,
+.button:focus,
+.button:active {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.25em;
+  background-color: #4353ff;
+  border-radius: 32px;
+  border: 1px solid rgba(8, 0, 133, 0);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  color: #4353ff;
+  background-color: #fff;
+  border: 1px solid #4353ff;
+}
+
+.button:disabled,
+.button:hover:disabled {
+  cursor: not-allowed;
+  border: 1px solid rgba(8, 0, 133, 0);
+  background-color: #4353ff;
+  color: #fff;
+  opacity: 0.6;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: none;
+  z-index: 9999;
+}
+
+.overlay.active {
+  display: block;
+}
+
+.header {
+  height: 86px;
+  background-color: #080185;
+  transition: all 0.35s ease;
+}
+.header .container {
+  height: 100%;
+}
+.header .container .header__container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .container .header__container .header__logo-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: -5px;
+}
+.header .container .header__container .header__logo-wrapper .header__logo {
+  transform: scale(0);
+}
+.header .container .header__container .header__nav {
+  display: block;
+}
+.header .container .header__container .header__nav ul {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  margin-right: -18px;
+}
+.header .container .header__container .header__nav ul li {
+  opacity: 0;
+  transform: translateY(-100vh);
+  animation: fall 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+.header .container .header__container .header__nav ul li a.active {
+  color: #4353ff !important;
+  background-image: none;
+  background-image: linear-gradient(to right, #e8f0fd 50%, #4353ff 50%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-position: -100% 0;
+  transition: background-position 0.5s;
+}
+.header .container .header__container .header__nav ul li a:link,
+.header .container .header__container .header__nav ul li a:visited {
+  position: relative;
+  display: inline-block;
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #e8f0fd;
+  line-height: 1.5em;
+  background-image: linear-gradient(to right, #e8f0fd 50%, #4353ff 50%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.5s;
+}
+.header .container .header__container .header__nav ul li a:hover {
+  background-position: -100% 0;
+}
+.header .container .header__container .header__nav ul li:nth-child(1), .header .container .header__container .header__nav ul .mobile-menu li.bar:nth-child(3), .header .container .header__container .mobile-menu .header__nav ul li.bar:nth-child(3), .header .container .header__container .header__nav ul .mobile-menu li.bar:nth-child(2), .header .container .header__container .mobile-menu .header__nav ul li.bar:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.header .container .header__container .header__nav ul li:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.header .container .header__container .header__nav ul li:nth-child(3) {
+  animation-delay: 0.9s;
+}
+.header .container .header__container .header__nav ul li:nth-child(4) {
+  animation-delay: 1.2s;
+}
+.header .container .header__container .mobile-menu {
+  display: none;
+}
+.header .container .header__container .mobile-menu .mobile-menu--toggle {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  z-index: 1000000;
+}
+.header .container .header__container .mobile-menu .bar:nth-child(1), .header .container .header__container .mobile-menu .bar:nth-child(3), .header .container .header__container .mobile-menu .bar:nth-child(2) {
+  width: 60%;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+.header .container .header__container .mobile-menu .bar:nth-child(2) {
+  width: 30px;
+}
+.header .container .header__container .mobile-menu .bar:nth-child(3) {
+  width: 60%;
+  margin-left: 12px;
+}
+
+.header.loaded .container .header__container .header__logo-wrapper .header__logo {
+  animation: zoomIn 1s ease-out forwards;
+}
+
+.header.header--sticky .container .header__container .header__logo-wrapper a .header__logo {
+  animation: none;
+}
+.header.header--sticky .container .header__container .header__nav ul li {
+  animation: none;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header .container .header__container .mobile-menu--open .mobile-menu--toggle {
+  position: absolute;
+  right: 30px;
+}
+.header .container .header__container .mobile-menu--open .mobile-menu--toggle .bar:nth-child(1), .header .container .header__container .mobile-menu--open .mobile-menu--toggle .mobile-menu .bar:nth-child(2), .header .container .header__container .mobile-menu .mobile-menu--open .mobile-menu--toggle .bar:nth-child(2), .header .container .header__container .mobile-menu--open .mobile-menu--toggle .mobile-menu .bar:nth-child(3), .header .container .header__container .mobile-menu .mobile-menu--open .mobile-menu--toggle .bar:nth-child(3) {
+  transform: rotate(45deg) translate(11px, 5px);
+  width: 100%;
+}
+.header .container .header__container .mobile-menu--open .mobile-menu--toggle .bar:nth-child(2) {
+  opacity: 0;
+}
+.header .container .header__container .mobile-menu--open .mobile-menu--toggle .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(14px, -7px);
+  margin-left: 0;
+  width: 100%;
+}
+
+.header--sticky {
+  position: fixed;
+  top: 0;
+  height: 66px;
+  width: 100%;
+  z-index: 9999;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+}
+.header--sticky .container .header__container .header__logo-wrapper a .header__logo {
+  animation: none;
+  transform: scale(1);
+  width: 80%;
+}
+
+@keyframes fall {
+  0% {
+    opacity: 1;
+    transform: translateY(-150vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@media (max-width: 1750px) {
+  .header .container .header__container .header__nav ul {
+    margin-right: 0;
+  }
+}
+@media (max-width: 1400px) {
+  .header .container .header__container .header__logo-wrapper {
+    margin-left: 0;
+  }
+  .header .container .header__container .header__nav ul {
+    gap: 70px;
+  }
+}
+@media (max-width: 1200px) {
+  .header .container .header__container .header__nav {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin-right: 0;
+    justify-content: start;
+    align-items: start;
+    z-index: 10000;
+    background-color: #151f5a;
+    height: 100%;
+    width: 300px;
+    border-radius: 0 0 0 15%;
+  }
+  .header .container .header__container .header__nav ul {
+    display: block;
+    flex-direction: column;
+    padding: 50px 30px;
+  }
+  .header .container .header__container .header__nav ul li {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+    margin-bottom: 30px;
+    letter-spacing: 0.8px;
+  }
+  .header .container .header__container .header__nav ul li a {
+    font-size: 16px;
+    font-family: "Bw Modelica SS01", sans-serif;
+    color: #e8f0fd;
+  }
+  .header .container .header__container .header__nav ul li a:hover {
+    color: #4353ff;
+  }
+  .header .container .header__container .header__nav ul li:last-child {
+    margin-bottom: 0;
+  }
+  .header .container .header__container .mobile-menu {
+    display: flex;
+    align-items: center;
+  }
+}
+@media (max-width: 768px) {
+  .header .container .header__container .header__logo-wrapper a .header__logo {
+    animation: none;
+    transform: scale(1);
+  }
+}
+@media (max-width: 576px) {
+  .header {
+    padding: 0 20px;
+  }
+  .header .container .header__container .header__logo-wrapper {
+    height: 100%;
+    width: 45%;
+  }
+}
+.hero {
+  position: relative;
+  min-height: 812px;
+}
+
+.hero__overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgb(8, 0, 133) 35%, transparent 100%);
+}
+
+.hero__container {
+  height: 100%;
+  display: flex;
+}
+
+.hero__content {
+  width: 757px;
+  padding-top: 179px;
+  margin-left: -5px;
+  z-index: 2;
+}
+.hero__content .content__pretitle {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: #fff;
+  line-height: 1.6em;
+  margin-bottom: 18px;
+  opacity: 0;
+  animation: reveal 2s ease forwards;
+  animation-delay: 2s;
+}
+.hero__content .content__title, .hero__content .container__bottom-section .bottom-section__content .content__text, .hero__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .hero__content .content__text, .container__bottom-section .bottom-section__content .hero__content .content__copyright {
+  font-family: "Blacker Display", sans-serif;
+  font-size: 56px;
+  color: #fff;
+  line-height: 1.1em;
+  text-transform: capitalize;
+  margin-bottom: 37px;
+  opacity: 0;
+  animation: reveal 2s ease forwards;
+}
+.hero__content .content__text, .hero__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .hero__content .content__copyright {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.8em;
+  color: #fff;
+  width: 714px;
+  opacity: 0;
+  animation: reveal 2s ease forwards;
+  animation-delay: 2s;
+}
+.hero__content .content__text--upper {
+  margin-bottom: 14px;
+}
+.hero__content .content__text--lower {
+  margin-bottom: 34px;
+}
+.hero__content .hero__btn {
+  padding: 16px 40px 16px 40px;
+  letter-spacing: 0.3px;
+  opacity: 0;
+  animation: slideIn 2s ease forwards;
+  animation-delay: 1s;
+}
+
+.animation {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 1;
+    -webkit-clip-path: inset(0 100% 0 0);
+            clip-path: inset(0 100% 0 0);
+  }
+  to {
+    -webkit-clip-path: inset(0 0 0 0);
+            clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+@media (max-width: 1700px) {
+  .animation {
+    padding-top: 125px;
+    width: 900px;
+  }
+  .hero__content {
+    margin: 0;
+  }
+}
+@media (max-width: 1400px) {
+  .hero__content {
+    padding-top: 90px;
+  }
+  .animation {
+    width: 650px;
+    padding-top: 300px;
+  }
+  .hero__content .content__title, .hero__content .container__bottom-section .bottom-section__content .content__text, .hero__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .hero__content .content__text, .container__bottom-section .bottom-section__content .hero__content .content__copyright {
+    font-size: 50px;
+  }
+}
+@media (max-width: 1200px) {
+  .hero {
+    background: #080085;
+  }
+  .hero .container .hero__overlay {
+    display: none;
+  }
+  .hero .container .hero__container .hero__content {
+    padding-top: 30px;
+  }
+  .hero .container .hero__container .hero__content .content__title, .hero .container .hero__container .hero__content .container__bottom-section .bottom-section__content .content__text, .hero .container .hero__container .hero__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .hero .container .hero__container .hero__content .content__text, .container__bottom-section .bottom-section__content .hero .container .hero__container .hero__content .content__copyright {
+    font-size: 46px;
+    margin-bottom: 30px;
+  }
+  .hero .container .hero__container .animation {
+    padding-top: 330px;
+    width: 650px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transform: scale(1);
+  }
+}
+@media (max-width: 992px) {
+  .hero .container .hero__container {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero .container .hero__container .hero__content {
+    width: 100%;
+    text-align: center;
+  }
+  .hero .container .hero__container .hero__content .content__pretitle {
+    width: 100%;
+  }
+  .hero .container .hero__container .hero__content .content__title, .hero .container .hero__container .hero__content .container__bottom-section .bottom-section__content .content__text, .hero .container .hero__container .hero__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .hero .container .hero__container .hero__content .content__text, .container__bottom-section .bottom-section__content .hero .container .hero__container .hero__content .content__copyright {
+    font-size: 40px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .hero .container .hero__container .hero__content .content__text, .hero .container .hero__container .hero__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .hero .container .hero__container .hero__content .content__copyright {
+    width: 100%;
+  }
+  .hero .container .hero__container .hero__content .content__text--lower {
+    margin-bottom: 20px;
+  }
+  .hero .container .hero__container .animation {
+    padding-top: 0;
+    position: relative;
+    align-self: center;
+    width: 80%;
+    transform: scale(1);
+  }
+}
+@media (max-width: 768px) {
+  .hero .container .hero__container .hero__content .content__pretitle {
+    font-size: 18px;
+  }
+  .hero .container .hero__container .hero__content .content__title, .hero .container .hero__container .hero__content .container__bottom-section .bottom-section__content .content__text, .hero .container .hero__container .hero__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .hero .container .hero__container .hero__content .content__text, .container__bottom-section .bottom-section__content .hero .container .hero__container .hero__content .content__copyright {
+    font-size: 40px;
+  }
+  .hero .container .hero__container .hero__content .hero__btn {
+    font-size: 14px;
+    padding: 15px 30px;
+  }
+}
+@media (max-width: 600px) {
+  .hero .container .hero__container .hero__content .content__pretitle,
+  .hero .container .hero__container .hero__content .content__title,
+  .hero .container .hero__container .hero__content .content__text,
+  .hero .container .hero__container .hero__content .container__bottom-section .bottom-section__content .content__copyright,
+  .container__bottom-section .bottom-section__content .hero .container .hero__container .hero__content .content__copyright {
+    animation: none;
+    opacity: 1;
+  }
+  .hero .container .hero__container .hero__content .hero__btn {
+    animation-delay: 0s;
+  }
+}
+@media (max-width: 576px) {
+  .hero .container .hero__container {
+    padding: 20px;
+    gap: 30px;
+  }
+  .hero .container .hero__container .hero__content .content__pretitle {
+    font-size: 16px;
+  }
+  .hero .container .hero__container .hero__content .content__title, .hero .container .hero__container .hero__content .container__bottom-section .bottom-section__content .content__text, .hero .container .hero__container .hero__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .hero .container .hero__container .hero__content .content__text, .container__bottom-section .bottom-section__content .hero .container .hero__container .hero__content .content__copyright {
+    font-size: 30px;
+  }
+  .hero .container .hero__container .hero__content .content__text, .hero .container .hero__container .hero__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .hero .container .hero__container .hero__content .content__copyright {
+    font-size: 14px;
+  }
+}
+.about-us {
+  position: relative;
+  min-height: 672px;
+  background: linear-gradient(to bottom, #fef4f2, #e8f0fd);
+  padding-top: 77px;
+  padding-left: 41px;
+}
+
+.about__wrapper {
+  height: 518.4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-us__card {
+  width: 760.32px;
+  height: 518.4px;
+  background-color: #fff;
+  z-index: 2;
+  padding: 74px 0 0 60px;
+  box-shadow: 0 0 32px rgba(8, 0, 133, 0.16);
+  margin-left: -84px;
+}
+.about-us__card .card__content {
+  width: 640px;
+}
+.about-us__card .card__content .content__pretitle {
+  font-family: "Bw Modelica SS01";
+  font-weight: 600;
+  font-size: 16px;
+  color: #151f5a;
+  line-height: 1.5em;
+  margin-bottom: 16px;
+}
+.about-us__card .card__content .content__title, .about-us__card .card__content .container__bottom-section .bottom-section__content .content__text, .about-us__card .card__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .about-us__card .card__content .content__text, .container__bottom-section .bottom-section__content .about-us__card .card__content .content__copyright {
+  font-family: "Blacker Display";
+  font-size: 32px;
+  color: #151f5a;
+  line-height: 1.375em;
+  margin-bottom: 30px;
+}
+.about-us__card .card__content .content__text, .about-us__card .card__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .about-us__card .card__content .content__copyright {
+  font-family: "Bw Modelica SS01";
+  font-weight: 500;
+  font-size: 16px;
+  color: #151f5a;
+  line-height: 1.5em;
+}
+
+.about-us__img-wrapper {
+  align-self: center;
+  width: 340.06px;
+  height: 340.06px;
+  border-radius: 163.95px 163.95px 0 0;
+  background: linear-gradient(135deg, rgb(27, 39, 113), rgb(51, 74, 215));
+  box-shadow: 0 0 40.99px rgba(67, 83, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: inline-block;
+  width: 33.65%;
+  height: 672px;
+  background-color: #151f5a;
+}
+
+.animate-about.animate {
+  animation: moveRight 1s ease-in-out forwards, flash 1s linear forwards;
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(30px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes flash {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@media (max-width: 1550px) {
+  .about-us__card {
+    margin-left: -30px;
+  }
+}
+@media (max-width: 1200px) {
+  .about-us {
+    padding-left: 0;
+  }
+  .about__wrapper::before {
+    display: none;
+  }
+  .about__wrapper {
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .about-us__card {
+    margin-left: 0;
+    padding: 60px;
+    max-width: 600px;
+  }
+  .about-us__card .card__content {
+    width: 100%;
+  }
+  .about-us__img-wrapper {
+    order: -1;
+    width: 200px;
+    height: 200px;
+  }
+  .about-us__img {
+    max-width: 90%;
+  }
+}
+@media (max-width: 992px) {
+  .about-us {
+    padding-top: 50px;
+  }
+  .about-us__card {
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .about-us__card {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+  }
+  .about-us__card .card__content .content__title, .about-us__card .card__content .container__bottom-section .bottom-section__content .content__text, .about-us__card .card__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .about-us__card .card__content .content__text, .container__bottom-section .bottom-section__content .about-us__card .card__content .content__copyright {
+    font-size: 24px;
+  }
+  .about-us__card .card__content .content__pretitle,
+  .about-us__card .card__content .content__text,
+  .about-us__card .card__content .container__bottom-section .bottom-section__content .content__copyright,
+  .container__bottom-section .bottom-section__content .about-us__card .card__content .content__copyright {
+    font-size: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .animate-about.animate {
+    animation: none;
+  }
+}
+@media (max-width: 576px) {
+  .about__wrapper {
+    padding: 0 20px;
+  }
+  .about-us__img-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+}
+.our-approach {
+  display: flex;
+  align-items: center;
+  min-height: 1136px;
+  background: linear-gradient(to bottom, rgb(232, 240, 253) 47%, #080185 47%);
+}
+
+.our-approach__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 130px;
+  padding: 64px 88px;
+  margin-left: -5px;
+  width: 1320px;
+  min-height: 904px;
+  background-color: #fff;
+  box-shadow: 0 0 32px rgba(8, 0, 133, 0.16);
+}
+
+.container__upper-section {
+  display: flex;
+  gap: 165px;
+  width: 100%;
+}
+.container__upper-section .upper-section__img-wrapper {
+  width: 340px;
+  height: 340px;
+  border-radius: 163.84px 163.84px 0 0;
+  background: linear-gradient(135deg, rgb(27, 39, 113), rgb(51, 74, 215));
+  box-shadow: 0 0 40.96px rgba(67, 83, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container__upper-section .upper-section__img-wrapper img {
+  max-width: 100%;
+  height: 100%;
+}
+.container__upper-section .upper-section__content {
+  width: 640px;
+  padding-top: 10px;
+}
+.container__upper-section .upper-section__content .content__pretitle {
+  font-family: "Bw Modelica SS01";
+  font-weight: 600;
+  font-size: 16px;
+  color: #151f5a;
+  line-height: 2em;
+  margin-bottom: 6px;
+}
+.container__upper-section .upper-section__content .content__title, .container__upper-section .upper-section__content .container__bottom-section .bottom-section__content .content__text, .container__upper-section .upper-section__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .container__upper-section .upper-section__content .content__text, .container__bottom-section .bottom-section__content .container__upper-section .upper-section__content .content__copyright {
+  font-family: "Blacker Display";
+  font-size: 32px;
+  color: #151f5a;
+  line-height: 1.375em;
+  margin-bottom: 26px;
+}
+.container__upper-section .upper-section__content .content__text, .container__upper-section .upper-section__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .container__upper-section .upper-section__content .content__copyright {
+  font-family: "Bw Modelica SS01";
+  font-weight: 500;
+  font-size: 16px;
+  color: #151f5a;
+  line-height: 1.5em;
+}
+
+.container__lower-section {
+  display: flex;
+  gap: 290px;
+  background: linear-gradient(135deg, rgb(27, 39, 113), rgb(51, 74, 215));
+  width: 100%;
+  min-height: 308px;
+  padding: 32px 48px;
+}
+.container__lower-section .lower-section__content {
+  width: 564px;
+  padding-top: 26px;
+  padding-left: 2px;
+}
+.container__lower-section .lower-section__content .content__title, .container__lower-section .lower-section__content .container__bottom-section .bottom-section__content .content__text, .container__lower-section .lower-section__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .container__lower-section .lower-section__content .content__text, .container__bottom-section .bottom-section__content .container__lower-section .lower-section__content .content__copyright {
+  font-family: "Blacker Display";
+  font-size: 32px;
+  color: #151f5a;
+  line-height: 1.375em;
+  color: #fff;
+  margin-bottom: 26px;
+}
+.container__lower-section .lower-section__content .content__text, .container__lower-section .lower-section__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .container__lower-section .lower-section__content .content__copyright {
+  font-family: "Bw Modelica SS01";
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.5em;
+}
+
+.animate-our-approach.animate {
+  animation: moveLeft 1s ease-in-out forwards, flash 1s linear forwards;
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes flash {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+@media (max-width: 600px) {
+  .animate-our-approach.animate {
+    animation: none;
+  }
+}
+@media (max-width: 1600px) {
+  .our-approach__wrapper {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+@media (max-width: 1400px) {
+  .container__upper-section {
+    gap: 100px;
+  }
+  .container__lower-section {
+    gap: 90px;
+  }
+}
+@media (max-width: 1200px) {
+  .our-approach__wrapper {
+    gap: 100px;
+  }
+  .container__upper-section {
+    gap: 30px;
+  }
+  .container__upper-section .upper-section__img-wrapper {
+    max-width: 240px;
+    height: 240px;
+  }
+  .container__lower-section {
+    gap: 20px;
+    align-items: center;
+  }
+}
+@media (max-width: 992px) {
+  .our-approach {
+    padding-top: 80px;
+  }
+  .container__upper-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container__upper-section .upper-section__content {
+    width: 100%;
+    text-align: center;
+  }
+  .container__upper-section .upper-section__img-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+  .container__lower-section {
+    padding: 0 20px;
+    text-align: center;
+  }
+  .container__lower-section .lower-section__img-wrapper {
+    display: none;
+  }
+  .container__lower-section .lower-section__content {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+@media (max-width: 768px) {
+  .our-approach {
+    padding-top: 50px;
+  }
+  .our-approach__wrapper {
+    gap: 60px;
+    padding: 60px 20px;
+  }
+  .container__upper-section .upper-section__content .content__pretitle,
+  .container__upper-section .upper-section__content .content__text,
+  .container__upper-section .upper-section__content .container__bottom-section .bottom-section__content .content__copyright,
+  .container__bottom-section .bottom-section__content .container__upper-section .upper-section__content .content__copyright {
+    font-size: 14px;
+  }
+  .container__upper-section .upper-section__content .content__title, .container__upper-section .upper-section__content .container__bottom-section .bottom-section__content .content__text, .container__upper-section .upper-section__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .container__upper-section .upper-section__content .content__text, .container__bottom-section .bottom-section__content .container__upper-section .upper-section__content .content__copyright {
+    font-size: 24px;
+  }
+  .container__lower-section {
+    min-height: 308px;
+  }
+  .container__lower-section .lower-section__content {
+    padding-top: 0;
+  }
+  .container__lower-section .lower-section__content .content__title, .container__lower-section .lower-section__content .container__bottom-section .bottom-section__content .content__text, .container__lower-section .lower-section__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .container__lower-section .lower-section__content .content__text, .container__bottom-section .bottom-section__content .container__lower-section .lower-section__content .content__copyright {
+    font-size: 24px;
+  }
+  .container__lower-section .lower-section__content .content__text, .container__lower-section .lower-section__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .container__lower-section .lower-section__content .content__copyright {
+    font-size: 14px;
+  }
+}
+@media (max-width: 576px) {
+  .our-approach {
+    padding: 50px 20px 0 20px;
+  }
+  .container__upper-section .upper-section__img-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+  .container__lower-section {
+    padding: 20px;
+  }
+}
+.team {
+  position: relative;
+  background-color: #080185;
+  background-image: url("../../assets/images/team-background-img.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  min-height: 744px;
+  padding-top: 129px;
+  margin-left: -9px;
+  z-index: 3;
+}
+
+.container__content {
+  width: 688px;
+}
+.container__content .content__pretitle {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 2em;
+  color: #fff;
+  margin-bottom: 9px;
+}
+.container__content .content__title, .container__content .container__bottom-section .bottom-section__content .content__text, .container__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .container__content .content__text, .container__bottom-section .bottom-section__content .container__content .content__copyright {
+  font-family: "Blacker Display", sans-serif;
+  font-size: 48px;
+  line-height: 1.33em;
+  color: #fff;
+  margin-bottom: 55px;
+}
+.container__content .content__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 64px;
+  grid-row-gap: 24px;
+}
+.container__content .content__cards .cards__card {
+  max-width: 312px;
+}
+.container__content .content__cards .cards__card .card__name {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.33em;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.container__content .content__cards .cards__card .card__job-title {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.container__content .content__cards .cards__card .card__text {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5em;
+  color: #fff;
+}
+
+@media (max-width: 1400px) {
+  .team {
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    margin-left: 0;
+    background-position: center right;
+    background-size: 900px;
+  }
+}
+@media (max-width: 1200px) {
+  .team {
+    background-image: none;
+    justify-content: center;
+    min-height: 600px;
+  }
+  .container__content {
+    width: 100%;
+  }
+}
+@media (max-width: 992px) {
+  .container__content .content__pretitle,
+  .container__content .content__title,
+  .container__content .container__bottom-section .bottom-section__content .content__text,
+  .container__content .container__bottom-section .bottom-section__content .content__copyright,
+  .container__bottom-section .bottom-section__content .container__content .content__text,
+  .container__bottom-section .bottom-section__content .container__content .content__copyright {
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .container__content .content__pretitle {
+    font-size: 14px;
+  }
+  .container__content .content__title, .container__content .container__bottom-section .bottom-section__content .content__text, .container__content .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .container__content .content__text, .container__bottom-section .bottom-section__content .container__content .content__copyright {
+    font-size: 24px;
+  }
+  .container__content .content__cards {
+    grid-row-gap: 48px;
+  }
+  .container__content .content__cards .cards__card .card__name {
+    font-size: 18px;
+  }
+  .container__content .content__cards .cards__card .card__job-title,
+  .container__content .content__cards .cards__card .card__text {
+    font-size: 14px;
+  }
+}
+@media (max-width: 576px) {
+  .team {
+    padding: 40px 20px;
+  }
+}
+@media (max-width: 480px) {
+  .container__content .content__cards {
+    grid-template-columns: 1fr;
+  }
+}
+.loader {
+  display: none;
+  border: 6px solid #ada9bb;
+  border-top: 6px solid #4353ff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  bottom: 8px;
+  left: 160px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.contact {
+  min-height: 750px;
+  background-color: #fff;
+  padding-top: 98px;
+  margin-left: -9px;
+}
+
+.contact__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content__container {
+  width: 534px;
+}
+.content__container .content__pretitle {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 2em;
+  color: #151f5a;
+  margin-bottom: 9px;
+}
+.content__container .content__title, .content__container .container__bottom-section .bottom-section__content .content__text, .content__container .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .content__container .content__text, .container__bottom-section .bottom-section__content .content__container .content__copyright {
+  font-family: "Blacker Display", sans-serif;
+  font-size: 48px;
+  line-height: 1.33em;
+  color: #151f5a;
+  margin-bottom: 30px;
+}
+.content__container .content__text, .content__container .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .content__container .content__copyright {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5em;
+  color: #151f5a;
+  margin-bottom: 32px;
+}
+.content__container .content__info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.content__container .content__info a:link,
+.content__container .content__info a:visited {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5em;
+  color: #151f5a;
+  background-image: linear-gradient(to right, #151f5a 50%, #4353ff 50%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.5s;
+}
+.content__container .content__info a:hover {
+  background-position: -100% 0;
+}
+.content__container .content__info .info__address {
+  display: flex;
+  gap: 24px;
+}
+.content__container .content__info .info__address .address__logo {
+  width: 32px;
+  height: 32px;
+  align-items: center;
+}
+.content__container .content__info .info__phone {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.content__container .content__info .info__email {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.form__container {
+  position: relative;
+  margin-right: -24px;
+}
+.form__container form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.form__container form .name__block,
+.form__container form .email__block,
+.form__container form .phone__block,
+.form__container form .msg__block,
+.form__container form .btn__block {
+  position: relative;
+}
+.form__container form .btn__block {
+  height: 54px;
+}
+.form__container form .msg__block {
+  margin-bottom: -5px;
+}
+.form__container form input,
+.form__container form textarea {
+  font-family: "Bw Modelica SS01";
+  font-size: 20px;
+  width: 424px;
+  height: 56px;
+  border: 1px solid #ada9bb;
+  border-radius: 4px;
+  padding: 16px 20px;
+  transition: all 0.3s ease;
+  text-overflow: ellipsis;
+}
+.form__container form input::-moz-placeholder, .form__container form textarea::-moz-placeholder {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5em;
+  color: #ada9bb;
+}
+.form__container form input::placeholder,
+.form__container form textarea::placeholder {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5em;
+  color: #ada9bb;
+}
+.form__container form input:focus,
+.form__container form textarea:focus {
+  outline: none;
+  border: 3px solid #4353ff;
+  border-radius: 8px;
+}
+.form__container form textarea {
+  height: 224px;
+  resize: none;
+  margin-bottom: 15px;
+}
+.form__container form button {
+  padding: 16px 40px;
+  width: 139px;
+}
+.form__container form span {
+  display: none;
+}
+.form__container form span.shown {
+  font-family: "Bw Modelica SS01";
+  font-weight: 600;
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #4353ff;
+  margin-top: -16px;
+  position: absolute;
+  bottom: -16px;
+  letter-spacing: 1px;
+}
+.form__container form #message-msg.shown {
+  bottom: 4px;
+}
+.form__container form #counter {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #ada9bb;
+  position: absolute;
+  display: inline;
+  right: 0;
+  bottom: -2px;
+}
+
+.popup {
+  display: none;
+  flex-direction: column;
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 88%;
+  background-color: #151f5a;
+  border-radius: 15px;
+  position: absolute;
+  top: -6px;
+  padding: 0 20px;
+}
+.popup .popup-img {
+  margin-top: -200px;
+}
+.popup .popup-text {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+}
+
+.animate-form.animate {
+  animation: moveRight 1s ease-in-out forwards, flash 1s linear forwards;
+}
+
+.animate-contact.animate {
+  animation: reveal 2s ease forwards;
+}
+
+@media (max-width: 600px) {
+  .animate-form.animate,
+  .animate-contact.animate {
+    animation: none;
+  }
+}
+@media (max-width: 1880px) {
+  .contact {
+    margin-left: 0;
+  }
+  .form__container {
+    margin-right: 0;
+  }
+  .content__info .info__address {
+    align-items: center;
+  }
+}
+@media (max-width: 992px) {
+  .contact {
+    margin-bottom: 50px;
+  }
+  .contact__wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+  .form__container {
+    width: 100%;
+  }
+  .form__container form input,
+  .form__container form textarea {
+    width: 100%;
+  }
+  .content__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .content__container .content__pretitle,
+  .content__container .content__title,
+  .content__container .container__bottom-section .bottom-section__content .content__text,
+  .content__container .container__bottom-section .bottom-section__content .content__copyright,
+  .container__bottom-section .bottom-section__content .content__container .content__text,
+  .container__bottom-section .bottom-section__content .content__container .content__copyright,
+  .content__container .content__text {
+    text-align: center;
+  }
+  .content__container .content__info {
+    gap: 24px;
+  }
+  .content__container .content__info .info__address,
+  .content__container .content__info .info__phone,
+  .content__container .content__info .info__email {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+  }
+}
+@media (max-width: 768px) {
+  .contact {
+    padding: 70px 20px 0;
+  }
+  .content__container .content__pretitle,
+  .content__container .content__text,
+  .content__container .container__bottom-section .bottom-section__content .content__copyright,
+  .container__bottom-section .bottom-section__content .content__container .content__copyright {
+    font-size: 14px;
+  }
+  .content__container .content__title, .content__container .container__bottom-section .bottom-section__content .content__text, .content__container .container__bottom-section .bottom-section__content .content__copyright, .container__bottom-section .bottom-section__content .content__container .content__text, .container__bottom-section .bottom-section__content .content__container .content__copyright {
+    font-size: 24px;
+  }
+}
+@media (max-width: 576px) {
+  .content__container .content__info a:link,
+  .content__container .content__info a:visited {
+    font-size: 14px;
+  }
+  .form__container form input {
+    font-size: 16px;
+  }
+}
+.footer {
+  min-height: 470px;
+  background-color: #151f5a;
+  border-radius: 64px 64px 0 0;
+}
+
+.footer__wrapper {
+  padding-top: 33px;
+}
+
+.container__above-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 118px;
+  margin-bottom: 15px;
+}
+.container__above-section .above-section__logo {
+  margin-left: -10px;
+}
+.container__above-section .above-section__nav ul {
+  display: flex;
+  justify-content: space-between;
+  width: 533px;
+}
+.container__above-section .above-section__nav ul li a:link,
+.container__above-section .above-section__nav ul li a:visited {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #e8f0fd;
+  line-height: 1.5em;
+  background-image: linear-gradient(to right, #e8f0fd 50%, #4353ff 50%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.5s;
+}
+.container__above-section .above-section__nav ul li a:hover {
+  background-position: -100% 0;
+}
+.container__above-section .above-section__icon {
+  margin-right: -25px;
+}
+
+.container__bottom-section {
+  border-top: 1px solid #fff;
+  padding-top: 24px;
+  width: 1320px;
+  margin-left: -5px;
+}
+.container__bottom-section .bottom-section__content {
+  width: 1024px;
+  text-align: center;
+  margin: 0 auto;
+}
+.container__bottom-section .bottom-section__content .content__title, .container__bottom-section .bottom-section__content .content__text, .container__bottom-section .bottom-section__content .content__copyright {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.5em;
+  margin-bottom: 9px;
+}
+.container__bottom-section .bottom-section__content .content__text, .container__bottom-section .bottom-section__content .content__copyright {
+  font-weight: 500;
+  margin-bottom: 38px;
+}
+.container__bottom-section .bottom-section__content .content__copyright a:link,
+.container__bottom-section .bottom-section__content .content__copyright a:visited {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #e8f0fd;
+  line-height: 1.5em;
+  background-image: linear-gradient(to right, #e8f0fd 50%, #4353ff 50%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.5s;
+}
+.container__bottom-section .bottom-section__content .content__copyright a:hover {
+  background-position: -100% 0;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+@media (min-width: 1200px) {
+  .container__above-section .above-section__icon:hover {
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background-color: #4353ff;
+    box-shadow: 0 3px 6px rgba(238, 224, 219, 0.4);
+    animation: bounce 1.5s infinite linear;
+  }
+}
+@media (max-width: 1400px) {
+  .container__above-section .above-section__logo {
+    margin-left: 0;
+  }
+  .container__above-section .above-section__icon {
+    margin-right: 0;
+  }
+  .container__above-section .above-section__nav ul {
+    justify-content: center;
+    gap: 40px;
+  }
+  .container__bottom-section {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+@media (max-width: 1200px) {
+  .container__above-section {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .container__bottom-section {
+    padding-left: 0;
+    padding-bottom: 15px;
+  }
+  .container__bottom-section .bottom-section__content {
+    width: 100%;
+  }
+  .container__bottom-section .bottom-section__content .content__copyright {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 992px) {
+  .container__above-section .above-section__nav {
+    width: 100%;
+  }
+  .container__above-section .above-section__nav ul {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .footer {
+    padding: 33px 20px 0;
+  }
+  .container__above-section .above-section__nav ul li a:link,
+  .container__above-section .above-section__nav ul li a:visited {
+    font-size: 14px;
+  }
+  .container__bottom-section .bottom-section__content .content__title, .container__bottom-section .bottom-section__content .content__copyright,
+  .container__bottom-section .bottom-section__content .content__text {
+    font-size: 14px;
+  }
+  .container__bottom-section .bottom-section__content .content__copyright {
+    font-size: 12px;
+  }
+  .container__bottom-section .bottom-section__content .content__copyright a:link,
+  .container__bottom-section .bottom-section__content .content__copyright a:visited {
+    font-size: 12px;
+  }
+}/*# sourceMappingURL=index.css.map */

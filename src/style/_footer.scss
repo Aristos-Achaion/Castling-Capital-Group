@@ -1,0 +1,207 @@
+.footer {
+  min-height: 470px;
+  background-color: $text-blue;
+  border-radius: 64px 64px 0 0;
+}
+.footer__wrapper {
+  padding-top: 33px;
+}
+.container__above-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 118px;
+  margin-bottom: 15px;
+  .above-section__logo {
+    margin-left: -10px;
+  }
+  .above-section__nav {
+    ul {
+      display: flex;
+      justify-content: space-between;
+      width: 533px;
+      li {
+        a:link,
+        a:visited {
+          font-family: "Bw Modelica SS01", sans-serif;
+          font-weight: 500;
+          font-size: 16px;
+          color: $link-white;
+          line-height: 1.5em;
+          background-image: linear-gradient(
+            to right,
+            $link-white 50%,
+            $accent-blue 50%
+          );
+          background-size: 200% 100%;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          transition: background-position 0.5s;
+        }
+        a:hover {
+          background-position: -100% 0;
+        }
+      }
+    }
+  }
+  .above-section__icon {
+    margin-right: -25px;
+  }
+}
+.container__bottom-section {
+  border-top: 1px solid $primary-white;
+  padding-top: 24px;
+  // padding-left: 14px;
+  width: 1320px;
+  margin-left: -5px;
+  .bottom-section__content {
+    width: 1024px;
+    text-align: center;
+    margin: 0 auto;
+    .content__title {
+      font-family: "Bw Modelica SS01", sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: $primary-white;
+      line-height: 1.5em;
+      margin-bottom: 9px;
+    }
+    .content__text {
+      @extend .content__title;
+      font-weight: 500;
+      margin-bottom: 38px;
+    }
+    .content__copyright {
+      @extend .content__text;
+      a:link,
+      a:visited {
+        font-family: "Bw Modelica SS01", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: $link-white;
+        line-height: 1.5em;
+        background-image: linear-gradient(
+          to right,
+          $link-white 50%,
+          $accent-blue 50%
+        );
+        background-size: 200% 100%;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: background-position 0.5s;
+      }
+      a:hover {
+        background-position: -100% 0;
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+// Responsive
+@media (min-width: 1200px) {
+  .container__above-section {
+    .above-section__icon:hover {
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      background-color: #4353ff;
+      box-shadow: 0 3px 6px rgba(238, 224, 219, 0.4);
+      animation: bounce 1.5s infinite linear;
+    }
+  }
+}
+
+@include breakpoint(xxl) {
+  .container__above-section {
+    .above-section__logo {
+      margin-left: 0;
+    }
+    .above-section__icon {
+      margin-right: 0;
+    }
+    .above-section__nav {
+      ul {
+        justify-content: center;
+        gap: 40px;
+      }
+    }
+  }
+  .container__bottom-section {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@include breakpoint(xl) {
+  .container__above-section {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .container__bottom-section {
+    padding-left: 0;
+    padding-bottom: 15px;
+    .bottom-section__content {
+      width: 100%;
+      .content__copyright {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@include breakpoint(lg) {
+  .container__above-section {
+    .above-section__nav {
+      width: 100%;
+      ul {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .footer {
+    padding: 33px 20px 0;
+  }
+  .container__above-section {
+    .above-section__nav {
+      ul {
+        li {
+          a:link,
+          a:visited {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  .container__bottom-section {
+    .bottom-section__content {
+      .content__title,
+      .content__text {
+        font-size: 14px;
+      }
+      .content__copyright {
+        font-size: 12px;
+        a:link,
+        a:visited {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.button,
+.button:hover,
+.button:focus,
+.button:active {
+  font-family: "Bw Modelica SS01", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: $primary-white;
+  line-height: 1.25em;
+  background-color: $accent-blue;
+  border-radius: 32px;
+  border: 1px solid rgba(8, 0, 133, 0);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  color: $accent-blue;
+  background-color: $primary-white;
+  border: 1px solid $accent-blue;
+}
+
+.button:disabled,
+.button:hover:disabled {
+  cursor: not-allowed;
+  border: 1px solid rgba(8, 0, 133, 0);
+  background-color: $accent-blue;
+  color: $primary-white;
+  opacity: 0.6;
+}

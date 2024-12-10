@@ -1,0 +1,183 @@
+.about-us {
+  position: relative;
+  min-height: 672px;
+  background: linear-gradient(to bottom, #fef4f2, #e8f0fd);
+  padding-top: 77px;
+  padding-left: 41px;
+}
+
+.about__wrapper {
+  height: 518.4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-us__card {
+  width: 760.32px;
+  height: 518.4px;
+  background-color: $primary-white;
+  z-index: 2;
+  padding: 74px 0 0 60px;
+  box-shadow: 0 0 32px rgba(8, 0, 133, 0.16);
+  margin-left: -84px;
+  .card__content {
+    width: 640px;
+    .content__pretitle {
+      font-family: "Bw Modelica SS01";
+      font-weight: 600;
+      font-size: 16px;
+      color: $text-blue;
+      line-height: 1.5em;
+      margin-bottom: 16px;
+    }
+    .content__title {
+      font-family: "Blacker Display";
+      font-size: 32px;
+      color: $text-blue;
+      line-height: 1.375em;
+      margin-bottom: 30px;
+    }
+    .content__text {
+      font-family: "Bw Modelica SS01";
+      font-weight: 500;
+      font-size: 16px;
+      color: $text-blue;
+      line-height: 1.5em;
+    }
+  }
+}
+.about-us__img-wrapper {
+  align-self: center;
+  width: 340.06px;
+  height: 340.06px;
+  border-radius: 163.95px 163.95px 0 0;
+  background: linear-gradient(
+    135deg,
+    rgba(27, 39, 113, 1),
+    rgba(51, 74, 215, 1)
+  );
+  box-shadow: 0 0 40.99px rgba(67, 83, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: inline-block;
+  width: 33.65%;
+  height: 672px;
+  background-color: $text-blue;
+}
+
+// Animations
+
+.animate-about.animate {
+  animation: moveRight 1s ease-in-out forwards, flash 1s linear forwards;
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(30px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+// Responsive
+@media (max-width: 1550px) {
+  .about-us__card {
+    margin-left: -30px;
+  }
+}
+
+@include breakpoint(xl) {
+  .about-us {
+    padding-left: 0;
+  }
+  .about__wrapper::before {
+    display: none;
+  }
+  .about__wrapper {
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .about-us__card {
+    margin-left: 0;
+    padding: 60px;
+    max-width: 600px;
+    .card__content {
+      width: 100%;
+    }
+  }
+  .about-us__img-wrapper {
+    order: -1;
+    width: 200px;
+    height: 200px;
+  }
+  .about-us__img {
+    max-width: 90%;
+  }
+}
+
+@include breakpoint(lg) {
+  .about-us {
+    padding-top: 50px;
+  }
+  .about-us__card {
+    text-align: center;
+  }
+}
+
+@include breakpoint(md) {
+  .about-us__card {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    .card__content {
+      .content__title {
+        font-size: 24px;
+      }
+      .content__pretitle,
+      .content__text {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .animate-about.animate {
+    animation: none;
+  }
+}
+
+@include breakpoint(sm) {
+  .about__wrapper {
+    padding: 0 20px;
+  }
+  .about-us__img-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+}

@@ -1,0 +1,131 @@
+.team {
+  position: relative;
+  background-color: $primary-blue;
+  background-image: url("../../assets/images/team-background-img.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  min-height: 744px;
+  padding-top: 129px;
+  margin-left: -9px;
+  z-index: 3;
+}
+.container__content {
+  width: 688px;
+  .content__pretitle {
+    font-family: "Bw Modelica SS01", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 2em;
+    color: $primary-white;
+    margin-bottom: 9px;
+  }
+  .content__title {
+    font-family: "Blacker Display", sans-serif;
+    font-size: 48px;
+    line-height: 1.33em;
+    color: $primary-white;
+    margin-bottom: 55px;
+  }
+  .content__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 64px;
+    grid-row-gap: 24px;
+    .cards__card {
+      max-width: 312px;
+      .card__name {
+        font-family: "Bw Modelica SS01", sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 1.33em;
+        color: $primary-white;
+        margin-bottom: 8px;
+      }
+      .card__job-title {
+        font-family: "Bw Modelica SS01", sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.5em;
+        color: $primary-white;
+        margin-bottom: 16px;
+      }
+      .card__text {
+        font-family: "Bw Modelica SS01", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.5em;
+        color: $primary-white;
+      }
+    }
+  }
+}
+
+// Responsive
+@include breakpoint(xxl) {
+  .team {
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    margin-left: 0;
+    background-position: center right;
+    background-size: 900px;
+  }
+}
+
+@include breakpoint(xl) {
+  .team {
+    background-image: none;
+    justify-content: center;
+    min-height: 600px;
+  }
+  .container__content {
+    width: 100%;
+  }
+}
+
+@include breakpoint(lg) {
+  .container__content {
+    .content__pretitle,
+    .content__title {
+      text-align: center;
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .container__content {
+    .content__pretitle {
+      font-size: 14px;
+    }
+    .content__title {
+      font-size: 24px;
+    }
+    .content__cards {
+      grid-row-gap: 48px;
+      .cards__card {
+        .card__name {
+          font-size: 18px;
+        }
+        .card__job-title,
+        .card__text {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .team {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container__content {
+    .content__cards {
+      grid-template-columns: 1fr;
+    }
+  }
+}

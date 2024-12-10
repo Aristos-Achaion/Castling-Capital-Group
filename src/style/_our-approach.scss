@@ -1,0 +1,248 @@
+.our-approach {
+  display: flex;
+  align-items: center;
+  min-height: 1136px;
+  background: linear-gradient(
+    to bottom,
+    rgba(232, 240, 253, 1) 47%,
+    $primary-blue 47%
+  );
+}
+
+.our-approach__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 130px;
+  padding: 64px 88px;
+  margin-left: -5px;
+  width: 1320px;
+  min-height: 904px;
+  background-color: $primary-white;
+  box-shadow: 0 0 32px rgba(8, 0, 133, 0.16);
+}
+
+.container__upper-section {
+  display: flex;
+  gap: 165px;
+  width: 100%;
+  .upper-section__img-wrapper {
+    width: 340px;
+    height: 340px;
+    border-radius: 163.84px 163.84px 0 0;
+    background: linear-gradient(
+      135deg,
+      rgba(27, 39, 113, 1),
+      rgba(51, 74, 215, 1)
+    );
+    box-shadow: 0 0 40.96px rgba(67, 83, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      max-width: 100%;
+      height: 100%;
+    }
+  }
+  .upper-section__content {
+    width: 640px;
+    padding-top: 10px;
+    .content__pretitle {
+      font-family: "Bw Modelica SS01";
+      font-weight: 600;
+      font-size: 16px;
+      color: $text-blue;
+      line-height: 2em;
+      margin-bottom: 6px;
+    }
+    .content__title {
+      font-family: "Blacker Display";
+      font-size: 32px;
+      color: $text-blue;
+      line-height: 1.375em;
+      margin-bottom: 26px;
+    }
+    .content__text {
+      font-family: "Bw Modelica SS01";
+      font-weight: 500;
+      font-size: 16px;
+      color: $text-blue;
+      line-height: 1.5em;
+    }
+  }
+}
+.container__lower-section {
+  display: flex;
+  gap: 290px;
+  background: linear-gradient(
+    135deg,
+    rgba(27, 39, 113, 1),
+    rgba(51, 74, 215, 1)
+  );
+  width: 100%;
+  min-height: 308px;
+  padding: 32px 48px;
+  .lower-section__content {
+    width: 564px;
+    padding-top: 26px;
+    padding-left: 2px;
+    .content__title {
+      font-family: "Blacker Display";
+      font-size: 32px;
+      color: $text-blue;
+      line-height: 1.375em;
+      color: $primary-white;
+      margin-bottom: 26px;
+    }
+    .content__text {
+      font-family: "Bw Modelica SS01";
+      font-weight: 500;
+      font-size: 16px;
+      color: $primary-white;
+      line-height: 1.5em;
+    }
+  }
+}
+
+// Animations
+.animate-our-approach.animate {
+  animation: moveLeft 1s ease-in-out forwards, flash 1s linear forwards;
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 600px) {
+  .animate-our-approach.animate {
+    animation: none;
+  }
+}
+
+// Responsive
+@media (max-width: 1600px) {
+  .our-approach__wrapper {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@include breakpoint(xxl) {
+  .container__upper-section {
+    gap: 100px;
+  }
+  .container__lower-section {
+    gap: 90px;
+  }
+}
+
+@include breakpoint(xl) {
+  .our-approach__wrapper {
+    gap: 100px;
+  }
+  .container__upper-section {
+    gap: 30px;
+    .upper-section__img-wrapper {
+      max-width: 240px;
+      height: 240px;
+    }
+  }
+  .container__lower-section {
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+@include breakpoint(lg) {
+  .our-approach {
+    padding-top: 80px;
+  }
+  .container__upper-section {
+    flex-direction: column;
+    align-items: center;
+    .upper-section__content {
+      width: 100%;
+      text-align: center;
+    }
+    .upper-section__img-wrapper {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  .container__lower-section {
+    padding: 0 20px;
+    text-align: center;
+    .lower-section__img-wrapper {
+      display: none;
+    }
+    .lower-section__content {
+      width: 100%;
+      padding-left: 0;
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .our-approach {
+    padding-top: 50px;
+  }
+  .our-approach__wrapper {
+    gap: 60px;
+    padding: 60px 20px;
+  }
+  .container__upper-section {
+    .upper-section__content {
+      .content__pretitle,
+      .content__text {
+        font-size: 14px;
+      }
+      .content__title {
+        font-size: 24px;
+      }
+    }
+  }
+  .container__lower-section {
+    min-height: 308px;
+    .lower-section__content {
+      padding-top: 0;
+      .content__title {
+        font-size: 24px;
+      }
+      .content__text {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .our-approach {
+    padding: 50px 20px 0 20px;
+  }
+  .container__upper-section {
+    .upper-section__img-wrapper {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  .container__lower-section {
+    padding: 20px;
+  }
+}
